@@ -1,3 +1,4 @@
+import java.util.*;
 class BinaryTree {
     Node root;
 
@@ -37,4 +38,31 @@ class BinaryTree {
             }
         }
     }
+     // Inorder Traversal: Left, Root, Right
+    public void inorder(Node node) {
+        if (node == null)
+            return;
+
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+    }
+
+    
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+
+        // Insert nodes
+        tree.insert(10);
+        tree.insert(20);
+        tree.insert(30);
+        tree.insert(40);
+        tree.insert(50);
+
+        // Print tree in inorder
+        System.out.print("Inorder Traversal: ");
+        tree.inorder(tree.root);
+        System.out.println();
+    }
 }
+
